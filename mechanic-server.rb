@@ -1,11 +1,19 @@
 require 'rubygems'
 require 'grape'
 require 'active_record'
+require 'github_api'
 require './config/boot'
+require 'rack/cors'
 
 module MechanicServer
   class API < Grape::API
     version 'v1', using: :path
+    use Rack::Cors do
+      allow do
+        origins '*'
+        resource '*', :headers => :any, :methods => [:get, :post]
+      end
+    end
     format :json
     
     namespace :registry do
