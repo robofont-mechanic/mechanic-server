@@ -6,9 +6,7 @@ class Extension < ActiveRecord::Base
   validate :repository_exists
   
   def repository_exists
-    user, repo = self.repository.split '/', 2
     begin
-      github = Github.new :user => user, :repo => repo
       sha = github.repos.commits.all.first.sha
       files = github.git_data.trees.get user, repo, sha, recursive: true
       errors.add :filename, "doesn't exists in repository" unless files.tree.any? do |file|
@@ -17,6 +15,18 @@ class Extension < ActiveRecord::Base
     rescue Github::Error::NotFound
       errors.add :repository, "doesn't exist"
     end
+  end
+  
+  def github
+    @github ||= Github.new :user => user, :repo => repo
+  end
+  
+  def user
+    self.repository.split('/', 2).first
+  end
+  
+  def repo
+    self.repository.split('/', 2).second
   end
   
 end

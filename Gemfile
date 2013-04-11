@@ -6,6 +6,7 @@ gem 'rack-contrib'
 gem 'rack-cors'
 gem 'sqlite3'
 gem 'github_api'
+gem 'minitest'
 
 group :production do
 	gem 'pg'
