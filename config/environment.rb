@@ -2,6 +2,7 @@ require 'uri'
 require 'active_record'
 require 'yaml'
 
+puts "DB: #{ENV['DATABASE_URL']}"
 if ENV['DATABASE_URL']
   db = URI.parse(ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
   ActiveRecord::Base.establish_connection(
