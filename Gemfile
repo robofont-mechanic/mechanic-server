@@ -7,7 +7,7 @@ gem 'github_api'
 
 group :test do
   gem 'minitest'
-emd
+end
 
 group :development, :test do
   gem 'sqlite3'

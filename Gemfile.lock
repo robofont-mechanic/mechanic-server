@@ -12,7 +12,6 @@ GEM
     activesupport (3.2.13)
       i18n (= 0.6.1)
       multi_json (~> 1.0)
-    ansi (1.4.3)
     arel (3.0.2)
     backports (2.6.7)
     builder (3.0.4)
@@ -56,15 +55,11 @@ GEM
     rack (1.5.2)
     rack-accept (0.4.5)
       rack (>= 0.4)
-    rack-contrib (1.1.0)
-      rack (>= 0.9.1)
     rack-cors (0.2.7)
       rack
     rack-mount (0.8.3)
       rack (>= 1.0.0)
     sqlite3 (1.3.7)
-    turn (0.8.3)
-      ansi
     tzinfo (0.3.37)
     virtus (0.5.4)
       backports (~> 2.6.1)
@@ -80,7 +75,5 @@ DEPENDENCIES
   minitest
   pg
   rack (= 1.5.2)
-  rack-contrib
   rack-cors
   sqlite3
-  turn (~> 0.8.3)

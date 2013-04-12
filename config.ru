@@ -1,5 +1,6 @@
 require './mechanic-server'
 require 'rack'
+require 'rack/cors'
 
 use Rack::Cors do
   allow do

@@ -3,7 +3,6 @@ require 'grape'
 require 'active_record'
 require 'github_api'
 require './config/boot'
-require 'rack/cors'
 
 module MechanicServer
   class API < Grape::API
