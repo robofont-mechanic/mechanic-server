@@ -1,6 +1,4 @@
-require './mechanic-server'
-require 'minitest/autorun'
-require 'rack/test'
+require 'spec_helper'
 
 class TestMechanistServer < MiniTest::Unit::TestCase
   include Rack::Test::Methods
@@ -12,6 +10,6 @@ class TestMechanistServer < MiniTest::Unit::TestCase
   def test_gets_repos
     get '/v1/registry.json'
     assert last_response.ok?
-    assert_equal JSON.parse(last_response.body), []
+    assert JSON.parse(last_response.body).is_a? Array
   end
 end

@@ -2,8 +2,10 @@ class Extension < ActiveRecord::Base
   
   validates :repository, :presence => true
   validates :filename, :presence => true
-  validates :name, :presence => true
+  validates :name, :presence => true, :uniqueness => true
   validate :repository_exists
+  
+  before_create :get_description
   
   def repository_exists
     begin
@@ -15,6 +17,10 @@ class Extension < ActiveRecord::Base
     rescue Github::Error::NotFound
       errors.add :repository, "doesn't exist"
     end
+  end
+  
+  def get_description
+    description = github.repos.get['description']
   end
   
   def github
