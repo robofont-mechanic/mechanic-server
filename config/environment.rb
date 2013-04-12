@@ -13,7 +13,7 @@ if db.scheme == 'postgres' # Heroku environment
   #   :encoding => 'utf8'
   # )
 else # local environment
-  environment = ENV['RACK_ENV']
+  environment = ENV['RACK_ENV'] || 'development'
   db = YAML.load(File.read('config/database.yml'))[environment]
   ActiveRecord::Base.establish_connection(db)
 end
