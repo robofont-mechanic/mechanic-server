@@ -4,6 +4,7 @@ gem 'activerecord', '3.2.13'
 gem 'grape', '0.4.1'
 gem 'rack-cors'
 gem 'github_api'
+gem 'unicorn'
 
 group :test do
   gem 'minitest'
