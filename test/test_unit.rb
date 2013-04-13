@@ -29,6 +29,12 @@ class TestExtension < MiniTest::Unit::TestCase
   end
   
   def test_gets_description
-    assert !@extension.get_description.blank?
+    @extension.get_description
+    assert !@extension.description.blank?
+  end
+
+  def test_gets_author
+    @extension.get_author
+    assert !@extension.author.blank?
   end
 end

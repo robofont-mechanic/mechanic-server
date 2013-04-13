@@ -6,6 +6,7 @@ class Extension < ActiveRecord::Base
   validate :repository_exists
   
   before_create :get_description
+  before_create :get_author
   
   def repository_exists
     begin
@@ -18,13 +19,18 @@ class Extension < ActiveRecord::Base
       errors.add :repository, "doesn't exist"
     end
   end
-  
-  def get_description
-    self.description = github.repos.get['description']
+
+  def github
+    @github ||= Github.new user: user, repo: repo
   end
   
-  def github
-    @github ||= Github.new :user => user, :repo => repo
+  def get_description
+    self.description = github.repos.get.description
+  end
+  
+  def get_author
+    u = github.users.get user: user
+    self.author = u.name
   end
   
   def user
