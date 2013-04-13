@@ -20,7 +20,7 @@ class Extension < ActiveRecord::Base
   end
   
   def get_description
-    description = github.repos.get['description']
+    self.description = github.repos.get['description']
   end
   
   def github

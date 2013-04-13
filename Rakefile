@@ -6,6 +6,8 @@ Rake::TestTask.new do |t|
   t.verbose = true
 end
 
+task :default => [:test]
+
 namespace :db do
   desc "Migrate the database"
   task :migrate do
