@@ -17,3 +17,5 @@ else # local environment
   db = YAML.load(File.read('config/database.yml'))[environment]
   ActiveRecord::Base.establish_connection(db)
 end
+
+ActiveRecord::Base.include_root_in_json = false
