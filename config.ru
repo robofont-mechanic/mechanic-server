@@ -2,6 +2,11 @@ require './mechanic-server'
 require 'rack'
 require 'rack/cors'
 
+unless ENV['RACK_ENV'] == 'production'
+  require 'rack/env'
+  use Rack::Env
+end
+
 use Rack::Cors do
   allow do
     origins '*'

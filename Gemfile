@@ -11,6 +11,7 @@ group :test do
 end
 
 group :development, :test do
+  gem 'rack-env'
   gem 'sqlite3'
 end
 

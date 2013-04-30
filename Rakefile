@@ -18,3 +18,11 @@ namespace :db do
     ActiveRecord::Migrator.migrate("db/migrate")
   end
 end
+
+desc "Check Rate Limit"
+task :ratelimit do
+  require './mechanic-server'
+  list = Github::Repos.new(user: 'jackjennings', client_id: ENV['GITHUB_ID'], client_secret: ENV['GITHUB_SECRET']).list
+  puts ENV['GITHUB_ID']
+  puts list.headers.ratelimit_remaining
+end
