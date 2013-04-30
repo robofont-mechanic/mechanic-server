@@ -20,11 +20,12 @@ module MechanicServer
         requires :repository, type: String
       end
       post do
-        Extension.create!({
+        extension = Extension.create({
           name: params[:name],
           filename: params[:filename],
           repository: params[:repository]
         })
+        error!(extension.errors.messages, 400) unless extension.valid?
       end
     end
   end
