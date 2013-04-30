@@ -25,7 +25,7 @@ module MechanicServer
           filename: params[:filename],
           repository: params[:repository]
         })
-        error!(extension.errors.messages, 400) unless extension.valid?
+        error!({'error': extension.errors.full_messages}, 400) unless extension.valid?
       end
     end
   end
