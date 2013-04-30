@@ -1,7 +1,6 @@
 require 'uri'
 require 'active_record'
 require 'yaml'
-require 'erb'
 
 if ENV['DATABASE_URL']
   db = URI.parse(ENV['DATABASE_URL'] || 'postgres://localhost/mydb')

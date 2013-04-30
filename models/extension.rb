@@ -10,6 +10,8 @@ class Extension < ActiveRecord::Base
   
   def repository_exists
     begin
+      sha = github.repos.commits.all.first.sha
+      files = github.git_data.trees.get user, repo, sha, recursive: true
       errors.add :filename, "doesn't exists in repository" unless files.tree.any? do |file|
         File.fnmatch "*#{filename}", file.path
       end
@@ -19,27 +21,16 @@ class Extension < ActiveRecord::Base
   end
 
   def github
-    @github ||= Github.new do |config|
-      config.user = user
-      config.repo = repo
-    end
-  end
-  
-  def commits
-    @commits ||= github.repos.commits.all(client_id: ENV['GITHUB_ID'], client_secret: ENV['GITHUB_SECRET'])
-  end
-  
-  def files
-    github.git_data.trees.get user, repo, commits.first.sha, recursive: true, client_id: ENV['GITHUB_ID'], client_secret: ENV['GITHUB_SECRET']
+    @github ||= Github.new user: user, repo: repo
   end
   
   def get_description
-    self.description = github.repos.get.description client_id: ENV['GITHUB_ID'], client_secret: ENV['GITHUB_SECRET']
+    self.description = github.repos.get.description
   end
   
   def get_author
-    u = github.users.get user: user, client_id: ENV['GITHUB_ID'], client_secret: ENV['GITHUB_SECRET']
-    self.author = !u['name'].nil? ? u.name : u.login
+    u = github.users.get user: user
+    self.author = u.name
   end
   
   def user
