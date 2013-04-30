@@ -10,6 +10,7 @@ class Extension < ActiveRecord::Base
   
   def repository_exists
     begin
+      return if repository.blank?
       errors.add :filename, "doesn't exists in repository" unless files.tree.any? do |file|
         File.fnmatch "*#{filename}", file.path
       end

@@ -15,9 +15,9 @@ module MechanicServer
       end
       
       params do
-        requires :name, type: String
-        requires :filename, type: String
-        requires :repository, type: String
+        requires :name, type: String, regexp: /.+/
+        requires :filename, type: String, regexp: /.+/
+        requires :repository, type: String, regexp: /.+/
       end
       post do
         extension = Extension.create({
