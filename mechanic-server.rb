@@ -6,6 +6,7 @@ require './config/boot'
 
 module MechanicServer
   class API < Grape::API
+    prefix 'api'
     version 'v1', using: :path
     format :json
     
