@@ -1,8 +1,8 @@
 class Extension < ActiveRecord::Base
   
-  validates :repository, :presence => true
-  validates :filename, :presence => true
-  validates :name, :presence => true, :uniqueness => true
+  validates :repository, presence: true
+  validates :filename, presence: true, uniqueness: { scope: :repository, message: "has already been added for this repository." }
+  validates :name, presence: true, uniqueness: true
   validate :repository_exists
   
   before_create :get_description
