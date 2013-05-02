@@ -5,6 +5,8 @@ gem 'grape', '0.4.1'
 gem 'rack-cors'
 gem 'github_api'
 gem 'unicorn'
+gem 'sinatra'
+gem 'builder'
 
 group :test do
   gem 'minitest'

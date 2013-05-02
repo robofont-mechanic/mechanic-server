@@ -1,3 +1,6 @@
+require 'active_record'
+require 'github_api'
+
 require File.expand_path('../environment', __FILE__)
 
 models = File.join(File.dirname(__FILE__), '..', 'models')

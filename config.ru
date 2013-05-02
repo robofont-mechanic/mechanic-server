@@ -1,6 +1,11 @@
-require './mechanic-server'
+require 'rubygems'
+
 require 'rack'
 require 'rack/cors'
+
+require './config/boot'
+require './mechanic/api'
+require './mechanic/docs'
 
 unless ENV['RACK_ENV'] == 'production'
   require 'rack/env'
@@ -16,4 +21,4 @@ end
 
 use ActiveRecord::ConnectionAdapters::ConnectionManagement
 
-run MechanicServer::API
+run Rack::Cascade.new [MechanicServer::API, MechanicServer::Docs]

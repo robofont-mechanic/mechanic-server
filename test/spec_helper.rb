@@ -1,4 +1,5 @@
 ENV['RACK_ENV'] = 'test'
-require './mechanic-server'
+require './config/boot'
+require './mechanic/api'
 require 'minitest/autorun'
 require 'rack/test'
