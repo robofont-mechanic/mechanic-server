@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'builder'
 
 module MechanicServer
   class Docs < Sinatra::Base
