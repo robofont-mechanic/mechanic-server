@@ -9,7 +9,7 @@ xml.rss version: "2.0" do
         xml.title extension.name
         xml.pubDate Time.parse(extension.created_at.to_s).rfc822
         xml.link 'http://github.com/' + extension.repository
-        xml.guid(extension.id, { isPermaLink: false })
+        xml.guid('robofont-mechanic-' + extension.id, { isPermaLink: false })
         xml.description 'By %s: %s' % [extension.author, extension.description]
       end
     end
