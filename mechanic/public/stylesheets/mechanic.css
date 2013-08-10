@@ -9,8 +9,8 @@ body {
 h1, h2 {
   font-weight: normal;
   font-size: 30pt;
-  line-height: 1.5em;
-  margin: 0;
+  line-height: 1em;
+  margin: 0 0 10px;
 }
 
 h1 {
@@ -33,6 +33,14 @@ a {
   background-color: green;
   display: inline-block;
   text-decoration: none;
+}
+
+.links {
+  margin: 1em 0;
+}
+
+.links a {
+  margin: 0 5px;
 }
 
 .extensions {
