@@ -60,3 +60,7 @@ a {
 .extension .description {
   text-align: center;
 }
+
+.extension a {
+  color: rgb(25, 25, 25);
+}
