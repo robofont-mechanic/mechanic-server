@@ -1,5 +1,5 @@
 require 'active_record'
-require 'github_api'
+require 'octokit'
 
 require File.expand_path('../environment', __FILE__)
 

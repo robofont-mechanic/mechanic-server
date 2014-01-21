@@ -11,35 +11,28 @@ class Extension < ActiveRecord::Base
   def repository_exists
     begin
       return if repository.blank?
-      errors.add :filename, "doesn't exists in repository" unless files.tree.any? do |file|
-        File.fnmatch "*#{filename}", file.path
+      if !file_exists?(filename)
+        errors.add :filename, "doesn't exists in repository"
       end
-    rescue Github::Error::NotFound
+    rescue Octokit::NotFound
       errors.add :repository, "doesn't exist"
-    end
-  end
-
-  def github
-    @github ||= Github.new do |config|
-      config.user = user
-      config.repo = repo
     end
   end
   
   def commits
-    @commits ||= github.repos.commits.all(client_id: ENV['GITHUB_ID'], client_secret: ENV['GITHUB_SECRET'])
+    @commits ||= Octokit.commits(repository)
   end
   
   def files
-    github.git_data.trees.get user, repo, commits.first.sha, recursive: true, client_id: ENV['GITHUB_ID'], client_secret: ENV['GITHUB_SECRET']
+    Octokit.tree repository, commits.first.sha, recursive: true
   end
   
   def get_description
-    self.description = github.repos.get.description client_id: ENV['GITHUB_ID'], client_secret: ENV['GITHUB_SECRET']
+    self.description = Octokit.repo(repository).description
   end
   
   def get_author
-    u = github.users.get user: user, client_id: ENV['GITHUB_ID'], client_secret: ENV['GITHUB_SECRET']
+    u = Octokit.user user
     self.author = !u['name'].nil? ? u.name : u.login
   end
   
@@ -49,6 +42,12 @@ class Extension < ActiveRecord::Base
   
   def repo
     self.repository.split('/', 2).second
+  end
+  
+  def file_exists? filename
+    files.tree.any? do |file|
+      File.fnmatch "*#{filename}", file.path
+    end
   end
   
 end

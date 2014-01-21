@@ -14,12 +14,6 @@ class TestExtension < MiniTest::Unit::TestCase
     assert_equal 'Dummy', @extension.repo
   end
   
-  def test_has_github
-    assert_instance_of Github::Client, @extension.github
-    assert_equal 'jackjennings', @extension.github.user
-    assert_equal 'Dummy', @extension.github.repo
-  end
-  
   def test_valid_if_repository_exists
     assert @extension.valid?, @extension.errors.full_messages
   end
