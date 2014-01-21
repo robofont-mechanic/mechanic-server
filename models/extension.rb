@@ -9,8 +9,8 @@ class Extension < ActiveRecord::Base
   before_create :get_author
   
   def repository_exists
+    return if repository.blank?
     begin
-      return if repository.blank?
       if !file_exists?(filename)
         errors.add :filename, "doesn't exists in repository"
       end
