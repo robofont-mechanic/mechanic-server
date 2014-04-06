@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+ruby '2.1.1'
+
 gem 'rack', '1.5.2'
 gem 'activerecord', '4.0.2'
 gem 'grape', '0.6.1'
@@ -18,5 +20,5 @@ group :development, :test do
 end
 
 group :production do
-	gem 'pg'
+  gem 'pg'
 end
