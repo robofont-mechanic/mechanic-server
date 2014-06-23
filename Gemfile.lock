@@ -41,6 +41,7 @@ GEM
       rack-mount
       virtus (>= 1.0.0)
     hashie (2.1.0)
+    hey (1.0.1)
     i18n (0.6.9)
     ice_nine (0.11.0)
     kgio (2.9.2)
@@ -91,6 +92,7 @@ DEPENDENCIES
   activerecord (= 4.0.2)
   builder
   grape (= 0.6.1)
+  hey
   minitest
   octokit (~> 2.0)
   pg

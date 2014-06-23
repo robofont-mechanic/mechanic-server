@@ -20,3 +20,5 @@ else # local environment
 end
 
 ActiveRecord::Base.include_root_in_json = false
+
+Hey.api_key = ENV['YO_API_KEY']

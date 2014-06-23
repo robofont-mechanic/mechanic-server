@@ -22,7 +22,11 @@ module MechanicServer
           filename: params[:filename],
           repository: params[:repository]
         })
-        error!({error: extension.errors.full_messages}, 400) unless extension.valid?
+        if extension.valid?
+          Hey::Yo.all if ENV['YO_API_KEY']
+        else
+          error!({error: extension.errors.full_messages}, 400)
+        end
       end
     end
   end
