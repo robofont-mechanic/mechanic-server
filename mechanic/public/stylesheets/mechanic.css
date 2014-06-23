@@ -54,6 +54,7 @@ a {
 
 .extension {
   display: inline-block;
+  vertical-align: top;
   margin-bottom: 50px;
   background-color: white;
   position: relative;
