@@ -5,12 +5,12 @@ module MechanicServer
     prefix 'api'
     version 'v1', using: :path
     format :json
-    
+
     namespace :registry do
       get do
         Extension.all
       end
-      
+
       params do
         requires :name, type: String, regexp: /.+/
         requires :filename, type: String, regexp: /.+/
@@ -22,11 +22,7 @@ module MechanicServer
           filename: params[:filename],
           repository: params[:repository]
         })
-        if extension.valid?
-          Hey::Yo.all if ENV['YO_API_KEY']
-        else
-          error!({error: extension.errors.full_messages}, 400)
-        end
+        error!({error: extension.errors.full_messages}, 400) if extension.valid?
       end
     end
   end

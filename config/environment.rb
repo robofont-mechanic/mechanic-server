@@ -2,7 +2,6 @@ require 'uri'
 require 'active_record'
 require 'yaml'
 require 'erb'
-require 'hey'
 
 if ENV['DATABASE_URL']
   db = URI.parse(ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
@@ -21,5 +20,3 @@ else # local environment
 end
 
 ActiveRecord::Base.include_root_in_json = false
-
-Hey.api_token = ENV['YO_API_KEY']
