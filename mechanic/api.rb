@@ -1,6 +1,6 @@
 require 'grape'
 
-module MechanicServer
+module Mechanic
   class API < Grape::API
     prefix 'api'
     version 'v1', using: :path

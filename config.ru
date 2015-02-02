@@ -21,4 +21,7 @@ end
 
 use ActiveRecord::ConnectionAdapters::ConnectionManagement
 
-run Rack::Cascade.new [MechanicServer::API, MechanicServer::Docs]
+run Rack::Cascade.new [
+  Mechanic::API,
+  Mechanic::Docs
+]
