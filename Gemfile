@@ -6,9 +6,9 @@ gem 'activerecord', '4.0.2'
 gem 'grape', '0.6.1'
 gem 'rack-cors'
 gem 'octokit', '~> 2.0'
-gem 'unicorn'
 gem 'sinatra'
 gem 'builder'
+gem 'puma'
 
 group :test do
   gem 'minitest'

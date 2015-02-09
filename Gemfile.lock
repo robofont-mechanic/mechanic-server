@@ -43,7 +43,6 @@ GEM
     hashie (2.1.0)
     i18n (0.6.9)
     ice_nine (0.11.0)
-    kgio (2.9.2)
     minitest (4.7.5)
     multi_json (1.9.2)
     multi_xml (0.5.5)
@@ -51,6 +50,8 @@ GEM
     octokit (2.7.2)
       sawyer (~> 0.5.2)
     pg (0.17.1)
+    puma (2.11.0)
+      rack (>= 1.1, < 2.0)
     rack (1.5.2)
     rack-accept (0.4.5)
       rack (>= 0.4)
@@ -62,7 +63,6 @@ GEM
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
-    raindrops (0.13.0)
     sawyer (0.5.4)
       addressable (~> 2.3.5)
       faraday (~> 0.8, < 0.10)
@@ -74,10 +74,6 @@ GEM
     thread_safe (0.3.2)
     tilt (1.4.1)
     tzinfo (0.3.39)
-    unicorn (4.8.2)
-      kgio (~> 2.6)
-      rack
-      raindrops (~> 0.7)
     virtus (1.0.2)
       axiom-types (~> 0.1)
       coercible (~> 1.0)
@@ -94,10 +90,10 @@ DEPENDENCIES
   minitest
   octokit (~> 2.0)
   pg
+  puma
   rack (= 1.5.2)
   rack-cors
   rack-env
   rack-test
   sinatra
   sqlite3
-  unicorn
