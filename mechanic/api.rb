@@ -22,7 +22,7 @@ module Mechanic
           filename: params[:filename],
           repository: params[:repository]
         })
-        error!({error: extension.errors.full_messages}, 400) if extension.valid?
+        error!({error: extension.errors.full_messages}, 400) unless extension.valid?
       end
     end
   end
