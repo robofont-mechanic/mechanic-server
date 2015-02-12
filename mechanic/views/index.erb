@@ -1,22 +1,28 @@
 <div class="extensions">
 
-  <p>These extensions are available to install with Mechanic:</p>
+  <p class="extensions-description">
+    These extensions are available to install using Mechanic:
+  </p>
 
   <% @extensions.each do |extension| %>
 
-    <div class="extension">
+    <a href="<%= extension.source %>" target="_blank" class="extension">
 
       <header>
-        <h2><%= extension.name %></h2>
+        <h1><%= extension.name %></h1>
+
+        <div class="author">
+          <%= extension.author %>
+        </div>
+
+        <div class="metadata">
+          <div class="created_at">Added: <%= extension.created_at.strftime('%-d %B %Y') %></div>
+          <div class="source">Source</div>
+        </div>
       </header>
 
       <div class="description"><%= extension.description %></div>
-      <div class="author">By <a href="http://github.com/<%= extension.user %>"><%= extension.author %></a></div>
-      <div class="created_at">Added on <%= extension.created_at.strftime('%x') %></div>
-
-      <a href="https://github.com/<%= extension.repository %>"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
-
-    </div>
+    </a>
 
   <% end %>
 
