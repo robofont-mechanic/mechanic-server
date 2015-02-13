@@ -101,10 +101,6 @@ a {
   margin: 0 10px 0 0;
 }
 
-.extension .author {
-  margin-right: 4em;
-}
-
 .extension .metadata,
 .extension .description {
   font-size: 10pt;
@@ -153,6 +149,16 @@ a {
     background-position: center top;
     background-size: 120px 120px;
     margin-top: 0;
+  }
+
+  .extension header {
+    padding-right: 4em;
+  }
+
+  .extension h1,
+  .extension .author {
+    display: block;
+    margin: 0;
   }
 
   .extension .metadata {
