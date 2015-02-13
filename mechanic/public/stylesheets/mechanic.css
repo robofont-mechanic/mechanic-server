@@ -139,9 +139,14 @@ a {
 }
 
 @media screen and (max-width: 600px) {
+  body {
+    padding-top: 40px;
+  }
+
   .page-header {
-    padding: 220px 0 0;
+    padding: 140px 0 0;
     background-position: center top;
+    background-size: 120px 120px;
     margin-top: 0;
   }
 
