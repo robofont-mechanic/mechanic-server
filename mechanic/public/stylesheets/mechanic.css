@@ -101,6 +101,10 @@ a {
   margin: 0 10px 0 0;
 }
 
+.extension .author {
+  margin-right: 4em;
+}
+
 .extension .metadata,
 .extension .description {
   font-size: 10pt;
