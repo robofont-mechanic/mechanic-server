@@ -65,12 +65,14 @@ a {
 }
 
 .extensions-description {
-  width: 90%;
   position: absolute;
   bottom: 100%;
   left: 0;
+  right: 0;
   text-align: center;
   font-size: 10pt;
+  line-height: 1.5em;
+  margin-top: 0;
 }
 
 .extension {
@@ -148,6 +150,10 @@ a {
     background-position: center top;
     background-size: 120px 120px;
     margin-top: 0;
+  }
+
+  .extensions-description {
+    padding: 0 40px;
   }
 
   .extension header {
