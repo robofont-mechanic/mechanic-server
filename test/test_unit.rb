@@ -14,6 +14,12 @@ class TestExtension < Minitest::Test
     assert_equal 'Dummy', @extension.repo
   end
 
+  def test_valid_repository_name
+    @extension.repository = 'jackjennings/Dummy/foobar'
+    refute @extension.valid?
+    assert @extension.errors.full_messages.length > 0
+  end
+
   def test_valid_if_repository_exists
     assert @extension.valid?, @extension.errors.full_messages
   end
