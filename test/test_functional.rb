@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-class TestMechanicAPI < MiniTest::Unit::TestCase
+class TestMechanicAPI < Minitest::Test
   include Rack::Test::Methods
 
   def app
