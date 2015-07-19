@@ -1,9 +1,12 @@
 require 'sinatra'
+require 'tilt/erb'
+require 'tilt/builder'
 
-require 'models/extension'
+require 'mechanic/server/models/extension'
 
 module Mechanic
   class Docs < Sinatra::Base
+
     get '/' do
       @extensions = Extension.all.sort_by {|e| e.name.downcase}
       erb :index
@@ -13,5 +16,6 @@ module Mechanic
       @extensions = Extension.order('created_at DESC').limit(30)
       builder :rss
     end
+
   end
 end

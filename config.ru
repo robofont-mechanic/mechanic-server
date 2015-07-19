@@ -1,11 +1,10 @@
-require 'rubygems'
-
 require 'rack'
 require 'rack/cors'
 
 require './config/boot'
-require './mechanic/api'
-require './mechanic/docs'
+
+require 'mechanic/server/api'
+require 'mechanic/server/docs'
 
 unless ENV['RACK_ENV'] == 'production'
   require 'rack/env'
