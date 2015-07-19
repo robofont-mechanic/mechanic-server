@@ -1,6 +1,9 @@
 require 'spec_helper'
 
+require './mechanic/models/extension'
+
 class TestExtension < Minitest::Test
+
   def setup
     @extension = Extension.new repository: 'jackjennings/Dummy', name: 'Dummy', filename: 'Dummy.roboFontExt'
     @badExtension = Extension.new repository: 'jackjennings/Dummy2', name: 'Dummy', filename: 'Dummy.roboFontExt'
@@ -37,4 +40,5 @@ class TestExtension < Minitest::Test
     @extension.send :get_author
     assert !@extension.author.blank?
   end
+
 end

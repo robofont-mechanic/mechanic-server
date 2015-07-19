@@ -1,5 +1,7 @@
 require 'spec_helper'
 
+require './mechanic/api'
+
 class TestMechanicAPI < Minitest::Test
   include Rack::Test::Methods
 
@@ -12,4 +14,5 @@ class TestMechanicAPI < Minitest::Test
     assert last_response.ok?
     assert JSON.parse(last_response.body).is_a? Array
   end
+
 end

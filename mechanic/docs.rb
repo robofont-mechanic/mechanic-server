@@ -1,5 +1,6 @@
 require 'sinatra'
-require 'builder'
+
+require 'models/extension'
 
 module Mechanic
   class Docs < Sinatra::Base

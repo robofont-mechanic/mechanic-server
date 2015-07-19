@@ -1,5 +1,7 @@
 require 'grape'
 
+require 'models/extension'
+
 module Mechanic
   class API < Grape::API
     prefix 'api'
