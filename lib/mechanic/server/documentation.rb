@@ -5,7 +5,7 @@ require 'tilt/builder'
 require 'mechanic/server/models/extension'
 
 module Mechanic
-  class Docs < Sinatra::Base
+  class Documentation < Sinatra::Base
 
     get '/' do
       @extensions = Extension.all.sort_by {|e| e.name.downcase}

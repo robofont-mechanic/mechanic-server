@@ -4,7 +4,7 @@ require 'rack/cors'
 require './config/boot'
 
 require 'mechanic/server/api'
-require 'mechanic/server/docs'
+require 'mechanic/server/documentation'
 
 unless ENV['RACK_ENV'] == 'production'
   require 'rack/env'
@@ -22,5 +22,5 @@ use ActiveRecord::ConnectionAdapters::ConnectionManagement
 
 run Rack::Cascade.new [
   Mechanic::API,
-  Mechanic::Docs
+  Mechanic::Documentation
 ]

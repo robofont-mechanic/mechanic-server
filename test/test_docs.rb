@@ -1,13 +1,13 @@
 require 'spec_helper'
 
-require 'mechanic/server/docs'
+require 'mechanic/server/documentation'
 
 module Mechanic
-  class TestDocs < Minitest::Test
+  class TestDocumentation < Minitest::Test
     include Rack::Test::Methods
 
     def app
-      Docs
+      Documentation
     end
 
     def test_index
