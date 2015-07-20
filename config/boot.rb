@@ -1,4 +1,3 @@
-require 'active_record'
 require 'octokit'
 
 require File.expand_path('../environment', __FILE__)
