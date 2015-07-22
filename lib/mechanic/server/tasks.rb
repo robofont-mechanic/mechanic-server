@@ -1,2 +1,4 @@
-dir = File.dirname __FILE__
-Dir.glob(File.join(dir, 'tasks', '*.rake')).each {|r| load r}
+current_directory = File.dirname __FILE__
+tasks_glob = File.join current_directory, 'tasks', '*.rake'
+
+Dir.glob(tasks_glob).each {|r| load r}
