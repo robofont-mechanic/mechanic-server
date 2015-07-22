@@ -1,4 +1,7 @@
+$:.push File.expand_path('../lib', __FILE__)
+
 require 'rake/testtask'
+require 'mechanic/server/tasks'
 
 Rake::TestTask.new do |t|
   t.libs << "test"
@@ -7,14 +10,3 @@ Rake::TestTask.new do |t|
 end
 
 task default: [:test]
-
-namespace :db do
-  desc "Migrate the database"
-  task :migrate do
-    require 'logger'
-    require './config/boot'
-    ActiveRecord::Base.logger = Logger.new(STDOUT)
-    ActiveRecord::Migration.verbose = true
-    ActiveRecord::Migrator.migrate("db/migrate")
-  end
-end
