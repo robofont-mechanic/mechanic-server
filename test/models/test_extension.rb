@@ -30,13 +30,13 @@ module Mechanic
 
     def test_gets_description
       extension = build_extension
-      extension.send :get_description
+      extension.send :set_description
       assert !extension.description.blank?
     end
 
     def test_gets_author
       extension = build_extension
-      extension.send :get_author
+      extension.send :set_author
       assert !extension.author.blank?
     end
 

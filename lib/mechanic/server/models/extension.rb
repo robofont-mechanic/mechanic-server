@@ -23,8 +23,8 @@ module Mechanic
 
     validate :repository_exists
 
-    before_create :get_description
-    before_create :get_author
+    before_create :set_description
+    before_create :set_author
 
     def repository_exists
       return if repository.blank?
@@ -61,11 +61,11 @@ module Mechanic
       Octokit.tree repository, "HEAD", recursive: true
     end
 
-    def get_description
+    def set_description
       self.description = Octokit.repo(repository).description
     end
 
-    def get_author
+    def set_author
       u = Octokit.user user
       self.author = !u['name'].nil? ? u.name : u.login
     end
