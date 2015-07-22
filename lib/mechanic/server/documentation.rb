@@ -7,6 +7,8 @@ require 'mechanic/server/models/extension'
 module Mechanic
   class Documentation < Sinatra::Base
 
+    set :root, File.join(File.dirname(__FILE__), 'documentation')
+
     get '/' do
       @extensions = Extension.all.sort_by {|e| e.name.downcase}
       erb :index
