@@ -1,3 +1,5 @@
+require 'octokit'
+
 module Mechanic
   class Extension < ActiveRecord::Base
 
