@@ -1,4 +1,5 @@
 require 'grape'
+require 'rack/cors'
 
 require 'mechanic/server/models/extension'
 
@@ -7,6 +8,13 @@ module Mechanic
     prefix 'api'
     version 'v1', using: :path
     format :json
+
+    use Rack::Cors do
+      allow do
+        origins '*'
+        resource '*', :headers => :any, :methods => [:get, :post]
+      end
+    end
 
     namespace :registry do
       get do
