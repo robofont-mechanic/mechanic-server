@@ -38,11 +38,11 @@ module Mechanic
     end
 
     def user
-      self.repository.split('/', 2).first
+      repository.split('/', 2).first
     end
 
     def repo
-      self.repository.split('/', 2).second
+      repository.split('/', 2).second
     end
 
     def source
