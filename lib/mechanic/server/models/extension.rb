@@ -57,12 +57,8 @@ module Mechanic
       end
     end
 
-    def commits
-      @commits ||= Octokit.commits(repository)
-    end
-
     def files
-      Octokit.tree repository, commits.first.sha, recursive: true
+      Octokit.tree repository, "HEAD", recursive: true
     end
 
     def get_description

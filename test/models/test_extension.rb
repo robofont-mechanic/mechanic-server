@@ -40,6 +40,11 @@ module Mechanic
       assert !extension.author.blank?
     end
 
+    def test_finds_file_tree
+      extension = build_extension
+      assert extension.send(:file_exists?, 'Dummy.roboFontExt')
+    end
+
     private
 
     def build_extension(attrs = {})
