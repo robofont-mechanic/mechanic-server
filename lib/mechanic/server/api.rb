@@ -1,7 +1,7 @@
 require 'grape'
-require 'rack/cors'
 
 require 'mechanic/server/models/extension'
+require 'mechanic/server/middleware/permissive_cors'
 
 module Mechanic
   class API < Grape::API
@@ -9,12 +9,7 @@ module Mechanic
     version 'v1', using: :path
     format :json
 
-    use Rack::Cors do
-      allow do
-        origins '*'
-        resource '*', :headers => :any, :methods => [:get, :post]
-      end
-    end
+    use Middleware::PermissiveCors
 
     namespace :registry do
       get do
