@@ -4,10 +4,9 @@ module Mechanic
   module Middleware
     class PermissiveCors < Rack::Cors
 
-      def initialize(*args)
-        super(*args) do
-          allow_all
-        end
+      def initialize(*)
+        super
+        allow_all
       end
 
       private
@@ -15,7 +14,7 @@ module Mechanic
       def allow_all
         allow do
           origins '*'
-          resource '*', headers: :any, methods: [:get, :post]
+          resource '*', headers: :any, methods: :any
         end
       end
 
