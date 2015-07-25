@@ -1,7 +1,6 @@
 require './config/boot'
 
-require 'mechanic/server/api'
-require 'mechanic/server/documentation'
+require 'mechanic/server/omnibus'
 
 unless ENV['RACK_ENV'] == 'production'
   require 'rack/env'
@@ -10,7 +9,4 @@ end
 
 use ActiveRecord::ConnectionAdapters::ConnectionManagement
 
-run Rack::Cascade.new [
-  Mechanic::API,
-  Mechanic::Documentation
-]
+run Mechanic::Server::Omnibus.new
