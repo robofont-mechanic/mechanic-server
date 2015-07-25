@@ -1,4 +1,4 @@
-require 'rack/cascade'
+require 'rack'
 
 require 'mechanic/server/api'
 require 'mechanic/server/documentation'
