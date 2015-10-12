@@ -8,8 +8,8 @@ module Mechanic
     class Omnibus < Rack::Cascade
 
       APPS = [
-        Mechanic::API,
-        Mechanic::Documentation
+        Mechanic::API::Server,
+        Mechanic::Documentation::Server
       ]
 
       def initialize(apps = APPS, *args)

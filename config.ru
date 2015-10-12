@@ -1,6 +1,6 @@
 require './config/boot'
 
-require 'mechanic/server/omnibus'
+require 'mechanic/server'
 
 use ActiveRecord::ConnectionAdapters::ConnectionManagement
 
