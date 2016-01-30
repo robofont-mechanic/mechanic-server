@@ -7,7 +7,7 @@ module Mechanic
               presence: true,
               format: {
                 with: /\A[\w-]+\/[\w-]+\z/,
-                message: "should be in the format username/repositoryname"
+                message: "should be in the format username/repository name"
               }
 
     validates :filename,
@@ -15,6 +15,10 @@ module Mechanic
               uniqueness: {
                 scope: :repository,
                 message: "has already been added for this repository"
+              },
+              format: {
+                with: /\A.*\.roboFontExt\z/,
+                message: "should have the \"roboFontExt\" file extension"
               }
 
     validates :name,

@@ -45,6 +45,13 @@ module Mechanic
       assert extension.send(:file_exists?, 'Dummy.roboFontExt')
     end
 
+    def test_has_valid_file_extension
+      extension = build_extension filename: "Dummy.robofontExt"
+
+      refute extension.valid?
+      assert extension.errors[:filename].any?, extension.errors.full_messages
+    end
+
     private
 
     def build_extension(attrs = {})
