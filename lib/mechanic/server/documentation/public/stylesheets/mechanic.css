@@ -1,11 +1,12 @@
 body {
-  background-color: rgb(30, 30, 30);
-  color: rgb(240, 240, 240);
-  font-family: Helvetica, Arial;
+  background-color: rgb(35, 35, 35);
+  color: rgb(255, 255, 255);
+  font-family: "Balto", Helvetica, Arial;
   font-size: 12pt;
   line-height: 1.4em;
   margin: 0;
   padding: 75px 20px;
+  -webkit-font-smoothing: antialiased;
 }
 
 h1 {
@@ -16,35 +17,53 @@ h1 {
 }
 
 a {
-  color: rgb(240, 240, 240);
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  border-bottom: 1px solid red;
 }
 
 .page-header {
   width: 100%;
-  max-width: 400px;
+  max-width: 800px;
   margin: -20px auto 0;
-  padding: 20px 30px 0 220px;
-  background: transparent url('/images/icon.png') no-repeat scroll left top;
+  padding: 20px 30px 0;
 }
 
 .page-header h1 {
-  font-family: Impact, "DINCondensed-Bold", Helvetica, sans-serif;
-  font-size: 32pt;
-  line-height: 36pt;
+  font-family: "Action Cond Bold", Helvetica, sans-serif;
+  font-weight: 100;
+  text-transform: uppercase;
+  font-size: 64pt;
+  line-height: 64pt;
   text-align: center;
-  margin-bottom: 30px;
+  margin: 0;
+  display: inline-block;
+  margin-right: 7px;
+}
+
+.page-header h2 {
+  font-family: "Action Cond Light", Helvetica, sans-serif;
+  font-weight: 100;
+  font-size: 64pt;
+  line-height: 64pt;
+  text-align: center;
+  margin: 0;
+  display: inline-block;
 }
 
 .download {
-  padding: 10px 0;
-  background-color: rgb(10, 80, 207);
-  background-clip: padding-box;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 15px 0;
+  background-color: transparent;
+  border: 3px solid rgb(255, 255, 255);
   display: block;
   text-decoration: none;
-  width: 8em;
+  width: 6em;
   text-align: center;
   margin: 30px auto;
+  font-family: "Action Cond Bold", Helvetica, sans-serif;
+  text-transform: uppercase;
+  font-size: 24pt;
+  font-weight: regular;
 }
 
 .links {
