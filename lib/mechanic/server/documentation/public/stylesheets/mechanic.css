@@ -34,14 +34,40 @@ a {
 }
 
 .mechanic-description {
-  padding-right: 400px;
+  padding-right: 420px;
   margin-bottom: 140px;
 }
 
 .illustration {
-  height: 3px;
+  height: 2px;
   background-color: rgb(255, 255, 255);
   margin: 120px 0 50px;
+  position: relative;
+}
+
+.illustration .back,
+.illustration .handle,
+.illustration .front {
+  position: absolute;
+  left: 50%;
+  top: -50px;
+  height: 225px;
+  width: 250px;
+  margin-left: 100px;
+  background: transparent none no-repeat scroll 0 0;
+  background-size: contain;
+}
+
+.illustration .back {
+  background-image: url('/svgs/toolbox-back.svg')
+}
+
+.illustration .handle {
+  background-image: url('/svgs/toolbox-handle.svg')
+}
+
+.illustration .front {
+  background-image: url('/svgs/toolbox-front.svg')
 }
 
 .page-header h1 {
@@ -67,7 +93,7 @@ a {
 .download {
   padding: 15px 0;
   background-color: transparent;
-  border: 3px solid rgb(255, 255, 255);
+  border: 2px solid rgb(255, 255, 255);
   display: block;
   text-decoration: none;
   width: 6em;
