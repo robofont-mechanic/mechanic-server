@@ -172,6 +172,25 @@ a {
   border-color: white;
 }
 
+.credits {
+  text-align: center;
+}
+
+.credits .standard-library-logo {
+  width: 270px;
+  height: 36px;
+  background: transparent url('http://fonts.standard-library.com/logos/standard-library-white.svg') no-repeat scroll center center;
+  display: block;
+  margin: 3px auto 0;
+  border: none;
+  text-indent: -9999px;
+  overflow: hidden;
+}
+
+.credits p {
+  margin-bottom: 40px;
+}
+
 @media screen and (max-width: 600px) {
   body {
     padding-top: 40px;
