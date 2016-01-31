@@ -9,12 +9,12 @@
   <% @extensions.each do |extension| %>
 
     <tr class="extension">
-      <td class="name">
+      <td class="name" data-label="Extension">
         <div class="name__inner"><%= extension.name %></div>
       </td>
-      <td class="description"><%= extension.description.presence || "&mdash;" %></td>
-      <td class="author"><%= extension.author %></td>
-      <td class="created-at"><%= extension.created_at.strftime('%-d %B %Y') %></td>
+      <td class="description" data-label="Description"><%= extension.description.presence || "&mdash;" %></td>
+      <td class="author" data-label="Author"><%= extension.author %></td>
+      <td class="created-at" data-label="Date Added"><%= extension.created_at.strftime('%-d %B %Y') %></td>
     </tr>
 
   <% end %>

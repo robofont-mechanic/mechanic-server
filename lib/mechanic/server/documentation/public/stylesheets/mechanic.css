@@ -192,6 +192,7 @@ a {
 @media screen and (max-width: 600px) {
   body {
     padding-top: 40px;
+    font-size: 10.5pt;
   }
 
   .page-header {
@@ -201,32 +202,34 @@ a {
     margin-top: 0;
   }
 
-  .extensions-description {
-    padding: 0 40px;
+  .extensions th {
+    display: none;
   }
 
-  .extension header {
-    padding-right: 4em;
-  }
-
-  .extension h1,
-  .extension .author {
+  .extension {
     display: block;
-    margin: 0;
+    padding: 15px 0 13px;
   }
 
-  .extension .metadata {
-    margin-top: 3px;
-    position: static;
+  .extension td {
+    display: block;
+    padding: 4px 10px 4px 75px !important;
   }
 
-  .extension .metadata div {
-    margin: 0;
+  .extension td:before {
+    content: attr(data-label);
+    float: left;
+    margin-top: -1px;
+    margin-right: 10px;
+    font-family: "Action Cond Light", Helvetica, sans-serif;
+    width: 50px;
+    margin-left: -60px;
+    letter-spacing: 0.01em;
+    word-spacing: 0.08em;
   }
 
-  .extension .metadata .source {
-    position: absolute;
-    top: 2px;
-    right: 0;
+  .extension .name__inner {
+    max-width: none;
+    min-width: none;
   }
 }
