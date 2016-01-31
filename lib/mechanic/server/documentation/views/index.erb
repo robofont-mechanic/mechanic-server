@@ -1,29 +1,22 @@
-<div class="extensions">
-
-  <p class="extensions-description">
-    These extensions are available to install using Mechanic:
-  </p>
+<table class="extensions">
+  <tr class="headings">
+    <th>Extension</th>
+    <th>Description</th>
+    <th>Author</th>
+    <th>Date Added</th>
+  </tr>
 
   <% @extensions.each do |extension| %>
 
-    <a href="<%= extension.source %>" target="_blank" class="extension">
-
-      <header>
-        <h1><%= extension.name %></h1>
-
-        <div class="author">
-          <%= extension.author %>
-        </div>
-
-        <div class="metadata">
-          <div class="created_at">Added: <%= extension.created_at.strftime('%-d %B %Y') %></div>
-          <div class="source">Source</div>
-        </div>
-      </header>
-
-      <div class="description"><%= extension.description %></div>
-    </a>
+    <tr class="extension">
+      <td class="name">
+        <div class="name__inner"><%= extension.name %></div>
+      </td>
+      <td class="description"><%= extension.description.presence || "&mdash;" %></td>
+      <td class="author"><%= extension.author %></td>
+      <td class="created-at"><%= extension.created_at.strftime('%-d %B %Y') %></td>
+    </tr>
 
   <% end %>
 
-</div>
+</table>

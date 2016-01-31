@@ -116,87 +116,58 @@ a {
 }
 
 .extensions {
-  margin: 85px auto;
   width: 100%;
-  max-width: 700px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
   position: relative;
+  border-collapse: collapse;
+  margin-bottom: 100px;
 }
 
-.extensions-description {
-  position: absolute;
-  bottom: 100%;
-  left: 0;
-  right: 0;
-  text-align: center;
-  font-size: 10pt;
-  line-height: 1.5em;
-  margin-top: 0;
+.extensions th {
+  background-color: red;
+  font-weight: normal;
+  text-align: left;
+}
+
+.extensions tr {
+  border-bottom: 1px solid red;
+}
+
+.extensions tr:first-child,
+.extensions tr:last-child {
+  border-bottom: none;
+}
+
+.extensions th,
+.extensions td {
+  padding: 8px 15px 7px;
+}
+
+.extensions th:first-child,
+.extensions td:first-child {
+  padding-left: 40px;
+}
+
+.extensions th:last-child,
+.extensions td:last-child {
+  padding-right: 40px;
 }
 
 .extension {
   vertical-align: top;
   background-color: white;
-  color: rgb(150, 150, 150);
-  padding: 15px 20px;
+  color: rgb(35, 35, 35);
   text-decoration: none;
-  display: block;
 }
 
-.extension header {
-  position: relative;
+.extension .author,
+.extension .created-at {
+  white-space: nowrap;
 }
 
-.extension:nth-child(2n + 1) {
-  background-color: rgb(242, 242, 242);
-}
-
-.extension h1,
-.extension .author {
-  display: inline-block;
-}
-
-.extension h1 {
-  color: rgb(25, 25, 25);
-  margin: 0 10px 0 0;
-}
-
-.extension .metadata,
-.extension .description {
-  font-size: 10pt;
-  line-height: 1.5em;
-}
-
-.extension .description {
-  margin-top: 2px;
-}
-
-.extension .metadata {
-  position: absolute;
-  top: 4px;
-  right: 0;
-  line-height: 1.1em;
-}
-
-.extension .metadata div {
-  display: inline-block;
-  margin-left: 10px;
-}
-
-.extension .metadata .source {
-  color: rgb(10, 80, 207);
-  border-bottom: 1px dotted rgb(10, 80, 207);
-}
-
-.extension:hover {
-  background-color: rgb(10, 80, 207);
-  color: white;
-}
-
-.extension:hover h1,
-.extension:hover .metadata .source {
-  color: white;
-  border-color: white;
+.extension .name__inner {
+  max-width: 400px;
+  min-width: 250px;
+  width: 100%;
 }
 
 .credits {
