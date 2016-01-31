@@ -38,10 +38,14 @@ a {
   margin-bottom: 140px;
 }
 
-.illustration {
+.horizon {
   height: 2px;
   background-color: rgb(255, 255, 255);
-  margin: 120px 0 50px;
+  margin: 120px 0 0;
+}
+
+.illustration {
+  margin: 0 0 50px;
   position: relative;
 }
 
@@ -246,9 +250,12 @@ a {
     min-width: none;
   }
 
+  .horizon {
+    height: 1.5px;
+  }
+
   .illustration {
     margin-bottom: 160px;
-    height: 1.5px;
   }
 
   .illustration .back,
