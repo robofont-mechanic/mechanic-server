@@ -51,9 +51,9 @@ a {
   position: absolute;
   left: 50%;
   top: -50px;
-  height: 225px;
-  width: 250px;
-  margin-left: 100px;
+  width: 290px;
+  padding-top: 90%;
+  margin-left: 80px;
   background: transparent none no-repeat scroll 0 0;
   background-size: contain;
 }
