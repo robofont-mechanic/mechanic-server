@@ -1,4 +1,4 @@
-require 'octokit'
+require 'mechanic/server/github'
 
 module Mechanic
   class Extension < ActiveRecord::Base
@@ -33,10 +33,10 @@ module Mechanic
     def repository_exists
       return if repository.blank?
       begin
-        if !file_exists?(filename)
+        if !files.file_exists? filename
           errors.add :filename, "doesn't exists in repository"
         end
-      rescue Octokit::NotFound, Octokit::InvalidRepository
+      rescue GitHub::InvalidRepository
         errors.add :repository, "doesn't exist"
       end
     end
@@ -55,23 +55,16 @@ module Mechanic
 
     private
 
-    def file_exists? filename
-      files.tree.any? do |file|
-        File.fnmatch "*#{filename}", file.path
-      end
-    end
-
     def files
-      Octokit.tree repository, "HEAD", recursive: true
+      GitHub::FileTree.new(repository)
     end
 
     def set_description
-      self.description = Octokit.repo(repository).description
+      self.description = GitHub::Repository.new(repository).description
     end
 
     def set_author
-      u = Octokit.user user
-      self.author = !u['name'].nil? ? u.name : u.login
+      self.author = GitHub::User.new(user).name
     end
 
   end
