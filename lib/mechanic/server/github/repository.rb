@@ -12,4 +12,16 @@ class GitHub::Repository
     Octokit.repo(path).description
   end
 
+  def username
+    path.split('/', 2).first
+  end
+
+  def name
+    path.split('/', 2).second
+  end
+
+  def source
+    "https://github.com/#{path}"
+  end
+
 end

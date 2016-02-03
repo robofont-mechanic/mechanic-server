@@ -1,7 +1,10 @@
+require 'forwardable'
+
 require 'mechanic/server/github'
 
 module Mechanic
   class Extension < ActiveRecord::Base
+    extend Forwardable
 
     validates :repository,
               presence: true,
@@ -30,42 +33,42 @@ module Mechanic
     before_create :set_description
     before_create :set_author
 
-    def repository_exists
-      return if repository.blank?
-      begin
-        if !files.file_exists? filename
-          errors.add :filename, "doesn't exists in repository"
-        end
-      rescue GitHub::InvalidRepository
-        errors.add :repository, "doesn't exist"
-      end
-    end
-
-    def user
-      repository.split('/', 2).first
-    end
-
-    def repo
-      repository.split('/', 2).second
-    end
-
-    def source
-      "http://github.com/#{repository}"
-    end
+    def_delegator :github_repository, :username, :user
+    def_delegator :github_repository, :name,     :repo
+    def_delegator :github_repository, :source
 
     private
 
-    def files
-      GitHub::FileTree.new(repository)
-    end
+      def set_description
+        self.description = github_repository.description
+      end
 
-    def set_description
-      self.description = GitHub::Repository.new(repository).description
-    end
+      def set_author
+        self.author = github_user.name
+      end
 
-    def set_author
-      self.author = GitHub::User.new(user).name
-    end
+      def repository_exists
+        return if repository.blank?
+        begin
+          if !github_tree.file_exists? filename
+            errors.add :filename, "doesn't exists in repository"
+          end
+        rescue GitHub::InvalidRepository
+          errors.add :repository, "doesn't exist"
+        end
+      end
+
+      def github_tree
+        GitHub::FileTree.new repository
+      end
+
+      def github_repository
+        GitHub::Repository.new repository
+      end
+
+      def github_user
+        GitHub::User.new user
+      end
 
   end
 end

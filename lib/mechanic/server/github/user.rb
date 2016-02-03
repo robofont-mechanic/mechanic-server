@@ -18,5 +18,4 @@ class GitHub::User
       @user ||= Octokit.user username
     end
 
-
 end

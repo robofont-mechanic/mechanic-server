@@ -13,6 +13,10 @@ module Mechanic
       assert_equal 'Dummy', build_extension.repo
     end
 
+    def test_has_source
+      assert_equal 'https://github.com/jackjennings/Dummy', build_extension.source
+    end
+
     def test_valid_repository_name
       extension = build_extension repository: 'jackjennings/Dummy/foobar'
       refute extension.valid?
