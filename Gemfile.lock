@@ -89,7 +89,7 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
-    puma (2.12.2)
+    puma (2.16.0)
     rack (1.6.4)
     rack-accept (0.4.5)
       rack (>= 0.4)
@@ -137,3 +137,6 @@ DEPENDENCIES
   puma
   rack-test
   sqlite3
+
+BUNDLED WITH
+   1.11.2
