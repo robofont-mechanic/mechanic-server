@@ -36,7 +36,7 @@ module Mechanic
         if !file_exists?(filename)
           errors.add :filename, "doesn't exists in repository"
         end
-      rescue Octokit::NotFound
+      rescue Octokit::NotFound, Octokit::InvalidRepository
         errors.add :repository, "doesn't exist"
       end
     end
