@@ -4,6 +4,8 @@ class GitHub::Repository
 
   attr_reader :path
 
+  alias_method :to_s, :path
+
   def initialize path
     @path = path
   end

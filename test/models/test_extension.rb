@@ -1,9 +1,14 @@
 require 'spec_helper'
+require 'minitest/mock'
 
 require 'mechanic/server/models/extension'
 
 module Mechanic
   class TestExtension < Minitest::Test
+
+    def teardown
+      Extension.destroy_all
+    end
 
     def test_has_user
       assert_equal 'jackjennings', build_extension.user
@@ -49,6 +54,14 @@ module Mechanic
 
       refute extension.valid?
       assert extension.errors[:filename].any?, extension.errors.full_messages
+    end
+
+    def test_uses_repository_description_as_fallback
+      extension = build_extension
+      extension.send(:remote).stub :summary, nil do
+        extension.save
+        assert_equal "Blank RoboFont extension", extension.description
+      end
     end
 
     private

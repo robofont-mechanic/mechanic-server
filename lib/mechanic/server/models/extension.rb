@@ -33,41 +33,33 @@ module Mechanic
     before_create :set_description
     before_create :set_author
 
-    def_delegator :github_repository, :username, :user
-    def_delegator :github_repository, :name,     :repo
-    def_delegator :github_repository, :source
+    def_delegator :remote, :username, :user
+    def_delegator :remote, :name,     :repo
+    def_delegator :remote, :source
 
     private
 
       def set_description
-        self.description = github_repository.description
+        self.description = remote.summary || remote.description
       end
 
       def set_author
-        self.author = github_user.name
+        self.author = remote.developer
       end
 
       def repository_exists
         return if repository.blank?
-        begin
-          if !github_tree.file_exists? filename
-            errors.add :filename, "doesn't exists in repository"
-          end
-        rescue GitHub::InvalidRepository
-          errors.add :repository, "doesn't exist"
+
+        if !remote.file_exists?
+          errors.add :filename, "doesn't exist in repository"
         end
+
+      rescue GitHub::InvalidRepository
+        errors.add :repository, "doesn't exist (#{remote})"
       end
 
-      def github_tree
-        GitHub::FileTree.new repository
-      end
-
-      def github_repository
-        GitHub::Repository.new repository
-      end
-
-      def github_user
-        GitHub::User.new user
+      def remote
+        @remote ||= GitHub::ExtensionRepository.new repository, filename
       end
 
   end

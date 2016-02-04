@@ -21,6 +21,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'rack-cors'
   s.add_dependency 'activerecord', '~> 4.2'
   s.add_dependency 'octokit', '~> 2.0'
+  s.add_dependency 'plist'
 
   s.add_development_dependency 'minitest'
   s.add_development_dependency 'sqlite3'
