@@ -5,6 +5,7 @@ gemspec
 
 gem 'builder'
 gem 'puma'
+gem 'dotenv'
 
 group :production do
   gem 'pg'
