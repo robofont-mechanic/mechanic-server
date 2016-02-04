@@ -6,10 +6,6 @@ require 'mechanic/server/models/extension'
 module Mechanic
   class TestExtension < Minitest::Test
 
-    def teardown
-      Extension.destroy_all
-    end
-
     def test_has_user
       assert_equal 'jackjennings', build_extension.user
     end
@@ -37,6 +33,13 @@ module Mechanic
       assert !build_extension(repository: 'jackjennings/Dummy2').valid?
     end
 
+    def test_invalid_if_description_doesnt_exist
+      extension = build_extension
+      extension.description = nil
+      assert extension.invalid?
+      assert extension.errors[:description].any?, extension.errors.inspect
+    end
+
     def test_gets_description
       extension = build_extension
       extension.send :set_description
@@ -58,21 +61,23 @@ module Mechanic
 
     def test_uses_repository_description_as_fallback
       extension = build_extension
+      extension.description = nil
       extension.send(:remote).stub :summary, nil do
-        extension.save
+        extension.send :set_description
         assert_equal "Blank RoboFont extension", extension.description
       end
     end
 
     private
 
-    def build_extension(attrs = {})
-      Extension.new attrs.reverse_merge({
-        repository: 'jackjennings/Dummy',
-        name: 'Dummy',
-        filename: 'Dummy.roboFontExt'
-      })
-    end
+      def build_extension(attrs = {})
+        Extension.new attrs.reverse_merge({
+          repository: 'jackjennings/Dummy',
+          name: 'Dummy',
+          filename: 'Dummy.roboFontExt',
+          description: 'Foo'
+        })
+      end
 
   end
 end

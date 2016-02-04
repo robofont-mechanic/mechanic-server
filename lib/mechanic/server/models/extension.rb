@@ -28,6 +28,11 @@ module Mechanic
               presence: true,
               uniqueness: true
 
+    validates :description,
+              presence: {
+                message: "must have a description set in the info.plist file, or on the GitHub repository"
+              }
+
     validate :repository_exists
 
     before_create :set_description
