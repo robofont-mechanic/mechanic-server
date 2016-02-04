@@ -12,6 +12,8 @@ class GitHub::Repository
 
   def description
     Octokit.repo(path).description
+  rescue Octokit::NotFound
+    nil
   end
 
   def username

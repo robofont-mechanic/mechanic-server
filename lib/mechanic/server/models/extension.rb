@@ -30,13 +30,13 @@ module Mechanic
 
     validates :description,
               presence: {
-                message: "must have a description set in the info.plist file, or on the GitHub repository"
+                message: "must be set in the info.plist file or on your GitHub repository"
               }
 
     validate :repository_exists
 
-    before_create :set_description
-    before_create :set_author
+    before_validation :fetch_description!, on: :create
+    before_validation :fetch_author!,      on: :create
 
     def_delegator :remote, :username, :user
     def_delegator :remote, :name,     :repo
@@ -44,11 +44,11 @@ module Mechanic
 
     private
 
-      def set_description
+      def fetch_description!
         self.description = remote.summary || remote.description
       end
 
-      def set_author
+      def fetch_author!
         self.author = remote.developer
       end
 

@@ -17,6 +17,8 @@ class GitHub::Plist
 
     def remote
       @remote ||= Plist::parse_xml read repository.filename
+    rescue GitHub::InvalidRepository
+      Hash.new
     end
 
     def read filename
