@@ -22,7 +22,7 @@ class GitHub::Plist
     end
 
     def read filename
-      repository.files.read("#{filename}/info.plist")
+      repository.files.read("#{filename}/info.plist").force_encoding("utf-8")
     end
 
 end
