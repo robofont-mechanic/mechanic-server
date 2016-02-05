@@ -7,7 +7,11 @@ namespace :metadata do
     extensions = Mechanic::Extension.all
 
     summaries = extensions.map {|extension|
-      extension.send(:remote).summary
+      print "Fetching summary for #{extension.filename}"
+
+      extension.send(:remote).summary.tap do |s|
+        puts (s ? " (found)" : "")
+      end
     }.compact
 
     puts "#{summaries.count} of #{extensions.count} extensions have summaries"
