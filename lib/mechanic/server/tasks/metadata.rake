@@ -6,11 +6,13 @@ namespace :metadata do
   task :stats do
     extensions = Mechanic::Extension.all
 
+    puts "Fetching summaries for:"
+
     summaries = extensions.map {|extension|
-      print "Fetching summary for #{extension.filename} (#{extension.source})"
+      print "- [ ] #{extension.filename} (#{extension.source})\r"
 
       extension.send(:remote).summary.tap do |s|
-        puts (s ? " (found)" : "")
+        puts (s ? "- [x] #{extension.filename} (#{extension.source})" : "- [ ] #{extension.filename} (#{extension.source})\r")
       end
     }.compact
 
