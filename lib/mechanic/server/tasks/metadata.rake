@@ -19,4 +19,23 @@ namespace :metadata do
     puts "#{summaries.count} of #{extensions.count} extensions have summaries"
   end
 
+  task :update do
+    extensions = Mechanic::Extension.all
+
+    puts "Updating metadata for:"
+
+    extensions.each do |extension|
+      begin
+        print "  #{extension.filename} (#{extension.source})\r"
+        extension.send :fetch_description!
+        extension.send :fetch_author!
+        extension.save
+        puts "+ #{extension.filename} (#{extension.source})"
+      rescue
+        print "\n"
+        raise
+      end
+    end
+  end
+
 end
