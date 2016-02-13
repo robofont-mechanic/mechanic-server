@@ -7,7 +7,7 @@ PATH
       octokit (~> 2.0)
       plist
       rack (~> 1.5)
-      rack-cors
+      rack-permissive_cors
       sinatra
 
 GEM
@@ -99,6 +99,8 @@ GEM
     rack-cors (0.4.0)
     rack-mount (0.8.3)
       rack (>= 1.0.0)
+    rack-permissive_cors (0.1.0)
+      rack-cors (~> 0.4.0)
     rack-protection (1.5.3)
       rack
     rack-test (0.6.3)
