@@ -2,6 +2,10 @@ require 'uri'
 require 'active_record'
 require 'yaml'
 require 'erb'
+require 'dotenv'
+require 'octokit'
+
+Dotenv.load
 
 if ENV['DATABASE_URL']
   db = URI.parse(ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
@@ -17,6 +21,11 @@ else # local environment
   environment = ENV['RACK_ENV'] || 'development'
   db = YAML.load(File.read('config/database.yml'))[environment]
   ActiveRecord::Base.establish_connection(db)
+end
+
+Octokit.configure do |c|
+  c.client_id = ENV["GITHUB_CLIENT_ID"]
+  c.client_secret = ENV["GITHUB_CLIENT_SECRET"]
 end
 
 ActiveRecord::Base.include_root_in_json = false

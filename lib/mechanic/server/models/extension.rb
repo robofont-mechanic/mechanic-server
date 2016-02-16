@@ -1,7 +1,10 @@
-require 'octokit'
+require 'forwardable'
+
+require 'mechanic/server/github'
 
 module Mechanic
   class Extension < ActiveRecord::Base
+    extend Forwardable
 
     validates :repository,
               presence: true,
@@ -25,54 +28,44 @@ module Mechanic
               presence: true,
               uniqueness: true
 
+    validates :description,
+              presence: {
+                message: "must be set in the info.plist file or on your GitHub repository"
+              }
+
     validate :repository_exists
 
-    before_create :set_description
-    before_create :set_author
+    before_validation :fetch_description!, on: :create
+    before_validation :fetch_author!,      on: :create
 
-    def repository_exists
-      return if repository.blank?
-      begin
-        if !file_exists?(filename)
-          errors.add :filename, "doesn't exists in repository"
-        end
-      rescue Octokit::NotFound
-        errors.add :repository, "doesn't exist"
-      end
-    end
-
-    def user
-      repository.split('/', 2).first
-    end
-
-    def repo
-      repository.split('/', 2).second
-    end
-
-    def source
-      "http://github.com/#{repository}"
-    end
+    def_delegator :remote, :username, :user
+    def_delegator :remote, :name,     :repo
+    def_delegator :remote, :source
 
     private
 
-    def file_exists? filename
-      files.tree.any? do |file|
-        File.fnmatch "*#{filename}", file.path
+      def fetch_description!
+        self.description = remote.summary || remote.description
       end
-    end
 
-    def files
-      Octokit.tree repository, "HEAD", recursive: true
-    end
+      def fetch_author!
+        self.author = remote.developer
+      end
 
-    def set_description
-      self.description = Octokit.repo(repository).description
-    end
+      def repository_exists
+        return if repository.blank?
 
-    def set_author
-      u = Octokit.user user
-      self.author = !u['name'].nil? ? u.name : u.login
-    end
+        if !remote.file_exists?
+          errors.add :filename, "doesn't exist in repository"
+        end
+
+      rescue GitHub::InvalidRepository
+        errors.add :repository, "doesn't exist (#{remote})"
+      end
+
+      def remote
+        @remote ||= GitHub::ExtensionRepository.new repository, filename
+      end
 
   end
 end
