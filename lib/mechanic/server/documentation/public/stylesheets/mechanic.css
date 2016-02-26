@@ -9,7 +9,7 @@ body {
   font-size: 12pt;
   line-height: 1.4em;
   margin: 0;
-  padding: 75px 0;
+  padding: 75px 0 0;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -47,14 +47,25 @@ a {
 .illustration {
   margin: 0 0 50px;
   position: relative;
+  width: 100%;
+}
+
+.illustration .tool {
+  position: absolute;
+  left: 50%;
+  top: 100px;
+  width: 290px;
+  height: 140px;
+  margin-left: 87px;
+  z-index: 10;
 }
 
 .illustration .back,
 .illustration .handle,
 .illustration .front {
-  position: absolute;
+  position: fixed;
   left: 50%;
-  top: -50px;
+  top: 220px;
   width: 290px;
   padding-top: 90%;
   margin-left: 80px;
@@ -71,7 +82,34 @@ a {
 }
 
 .illustration .front {
-  background-image: url('/svgs/toolbox-front.svg')
+  background-image: url('/svgs/toolbox-front.svg');
+  z-index: 20;
+}
+
+.illustration .shelf {
+  position: fixed;
+  top: 425px;
+  left: 50%;
+  width: 50%;
+  height: 130px;
+  z-index: 15;
+  background-color: rgb(35, 35, 35);
+}
+
+.illustration .shelf2 {
+  position: fixed;
+  top: 370px;
+  left: 50%;
+  width: 185px;
+  height: 130px;
+  z-index: 15;
+  background-color: rgb(35, 35, 35);
+}
+
+.illustration .tool {
+  background-image: url('/svgs/wrench.svg');
+  width: 220px;
+  height: 140px;
 }
 
 .page-header h1 {
@@ -123,7 +161,7 @@ a {
   width: 100%;
   position: relative;
   border-collapse: collapse;
-  margin-bottom: 100px;
+  z-index: 30;
 }
 
 .extensions th {
@@ -175,7 +213,11 @@ a {
 }
 
 .credits {
+  padding: 100px 0 150px;
   text-align: center;
+  background-color: rgb(35, 35, 35);
+  position: relative;
+  z-index: 30;
 }
 
 .credits .standard-library-logo {
@@ -261,6 +303,7 @@ a {
   .illustration .back,
   .illustration .handle,
   .illustration .front {
+    position: relative;
     width: 200px;
     margin-left: -100px;
   }
