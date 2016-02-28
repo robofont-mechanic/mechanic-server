@@ -10,10 +10,14 @@
 
     <tr class="extension">
       <td class="name" data-label="Extension">
-        <div class="name__inner"><%= extension.name %></div>
+        <a href="<%= extension.source %>">
+          <div class="name__inner"><%= extension.name %></div>
+        </a>
       </td>
       <td class="author" data-label="Author">
-        <%= extension.author %>
+        <a href="<%= extension.source %>">
+          <%= extension.author %>
+        </a>
       </td>
       <td class="description" data-label="Description"><%= extension.description.presence || "&mdash;" %></td>
       <td class="created-at" data-label="Date Added"><%= extension.created_at.strftime('%-d %B %Y') %></td>

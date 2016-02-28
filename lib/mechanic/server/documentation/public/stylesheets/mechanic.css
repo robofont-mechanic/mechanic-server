@@ -262,6 +262,12 @@ a {
   text-decoration: none;
 }
 
+.extension a {
+  color: rgb(35, 35, 35);
+  background: none;
+  border: none;
+}
+
 .extension .author,
 .extension .created-at {
   white-space: nowrap;
