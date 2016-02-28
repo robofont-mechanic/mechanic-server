@@ -296,6 +296,17 @@ a {
   margin-bottom: 40px;
 }
 
+@media screen and (max-width: 1000px) {
+  .illustration .toolbox {
+    top: 290px;
+  }
+
+  .page-header h1,
+  .page-header h2 {
+    display: block;
+  }
+}
+
 @media screen and (max-width: 820px) {
   body {
     font-size: 10.5pt;
@@ -306,15 +317,10 @@ a {
   }
 
   .page-header h1,
-  .page-header h2 {
-    display: block;
-  }
-
-  .page-header h1,
   .page-header h2,
   .page-header .download {
     font-size: 48pt;
-    line-height: 48pt;
+    line-height: 45pt;
   }
 
   .page-header h2 {
@@ -325,6 +331,11 @@ a {
     position: static;
     text-align: left;
     margin: 4em 0;
+  }
+
+  .social-links a {
+    margin-left: 0;
+    margin-right: 5px;
   }
 
   .illustration {
