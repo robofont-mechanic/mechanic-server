@@ -128,10 +128,12 @@ a {
 .illustration .tool {
   position: absolute;
   left: 10px;
-  top: 130px;
+  top: 200px;
   width: 290px;
   height: 140px;
   z-index: 10;
+  background: transparent none no-repeat scroll center center;
+  background-size: contain;
 }
 
 .illustration .back,
@@ -164,7 +166,7 @@ a {
   top: 145px;
   left: 0;
   width: 33%;
-  height: 200px;
+  height: 300px;
   z-index: 15;
   background-color: rgb(35, 35, 35);
 }
@@ -174,15 +176,21 @@ a {
   top: 200px;
   left: 33%;
   width: 66%;
-  height: 200px;
+  height: 300px;
   z-index: 15;
   background-color: rgb(35, 35, 35);
 }
 
-.illustration .tool {
+.illustration .wrench {
   background-image: url('/svgs/wrench.svg');
   width: 220px;
   height: 140px;
+}
+
+.illustration .ruler {
+  background-image: url('/svgs/ruler.svg');
+  width: 260px;
+  height: 300px;
 }
 
 .extensions {
