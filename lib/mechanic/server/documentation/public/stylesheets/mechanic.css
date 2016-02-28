@@ -136,6 +136,11 @@ a {
   background-size: contain;
 }
 
+.illustration .tool.recto {
+  z-index: 6;
+  margin-left: 40px;
+}
+
 .illustration .back,
 .illustration .handle,
 .illustration .front {
@@ -149,11 +154,13 @@ a {
 }
 
 .illustration .back {
-  background-image: url('/svgs/toolbox-back.svg')
+  background-image: url('/svgs/toolbox-back.svg');
+  z-index: 5;
 }
 
 .illustration .handle {
-  background-image: url('/svgs/toolbox-handle.svg')
+  background-image: url('/svgs/toolbox-handle.svg');
+  z-index: 7;
 }
 
 .illustration .front {
