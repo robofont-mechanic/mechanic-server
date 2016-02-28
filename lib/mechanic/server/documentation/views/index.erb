@@ -1,8 +1,8 @@
 <table class="extensions">
   <tr class="headings">
     <th>Extension</th>
-    <th>Description</th>
     <th>Author</th>
+    <th>Description</th>
     <th>Date Added</th>
   </tr>
 
@@ -12,8 +12,10 @@
       <td class="name" data-label="Extension">
         <div class="name__inner"><%= extension.name %></div>
       </td>
+      <td class="author" data-label="Author">
+        <%= extension.author %>
+      </td>
       <td class="description" data-label="Description"><%= extension.description.presence || "&mdash;" %></td>
-      <td class="author" data-label="Author"><%= extension.author %></td>
       <td class="created-at" data-label="Date Added"><%= extension.created_at.strftime('%-d %B %Y') %></td>
     </tr>
 

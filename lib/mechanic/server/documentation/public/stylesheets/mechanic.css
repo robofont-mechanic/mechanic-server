@@ -338,28 +338,38 @@ a {
 
   .extension {
     display: block;
-    padding: 15px 0 13px;
+    padding: 30px 0 30px;
   }
 
   .extension td {
     display: block;
-    padding: 4px 10px 4px 75px !important;
+    padding: 0 20px !important;
   }
 
-  .extension td:before {
-    content: attr(data-label);
-    float: left;
-    margin-top: -1px;
-    margin-right: 10px;
-    font-family: "Action Cond Light", Helvetica, sans-serif;
-    width: 50px;
-    margin-left: -60px;
-    letter-spacing: 0.01em;
-    word-spacing: 0.08em;
+  .extension .name,
+  .extension .author {
+    font-family: "Action";
+    font-weight: 900;
+    font-size: 40pt;
+    line-height: 40pt;
   }
 
   .extension .name__inner {
     max-width: none;
     min-width: none;
+  }
+
+  .extension .author {
+    font-weight: 100;
+    margin-bottom: 8pt;
+  }
+
+  .extension .description {
+    margin-bottom: 8pt;
+  }
+
+  .extension .author,
+  .extension .created-at {
+    white-space: normal;
   }
 }
