@@ -1,3 +1,27 @@
+@font-face {
+  font-family: "Action";
+  font-weight: 100;
+  src: local("Action Cond Light Grade 2"),
+       url('https://fonts.robofontmechanic.com/action/ActionCondensedLight-Grade2-Web.eot'),
+       url('https://fonts.robofontmechanic.com/action/ActionCondensedLight-Grade2-Web.woff');
+}
+
+@font-face {
+  font-family: "Action";
+  font-weight: 900;
+  src: local("Action Cond Bold Grade 1"),
+       url('https://fonts.robofontmechanic.com/action/ActionCondensedBold-Grade1-Web.eot'),
+       url('https://fonts.robofontmechanic.com/action/ActionCondensedBold-Grade1-Web.woff');
+}
+
+@font-face {
+  font-family: "Balto";
+  font-weight: regular;
+  src: local("Balto"),
+       url('https://fonts.robofontmechanic.com/balto/baltoweb-book.eot'),
+       url('https://fonts.robofontmechanic.com/balto/baltoweb-book.woff');
+}
+
 * {
   box-sizing: border-box;
 }
@@ -74,24 +98,24 @@ a {
   background-image: url('/svgs/toolbox-front.svg')
 }
 
-.page-header h1 {
-  font-family: "Action Cond Bold", Helvetica, sans-serif;
-  font-weight: 100;
-  text-transform: uppercase;
-  font-size: 64pt;
+.page-header h1,
+.page-header h2 {
+  font-size: 54pt;
   line-height: 64pt;
   margin: 0;
   display: inline-block;
+}
+
+.page-header h1 {
+  font-family: "Action", Helvetica, sans-serif;
+  font-weight: 900;
   margin-right: 7px;
+  text-transform: uppercase;
 }
 
 .page-header h2 {
-  font-family: "Action Cond Light", Helvetica, sans-serif;
+  font-family: "Action", Impact, Helvetica, sans-serif;
   font-weight: 100;
-  font-size: 64pt;
-  line-height: 64pt;
-  margin: 0;
-  display: inline-block;
 }
 
 .download {
@@ -103,10 +127,10 @@ a {
   width: 6em;
   text-align: center;
   margin: 30px auto;
-  font-family: "Action Cond Bold", Helvetica, sans-serif;
+  font-family: "Action", Helvetica, sans-serif;
   text-transform: uppercase;
   font-size: 21pt;
-  font-weight: regular;
+  font-weight: 900;
   letter-spacing: 0.02em;
 }
 
