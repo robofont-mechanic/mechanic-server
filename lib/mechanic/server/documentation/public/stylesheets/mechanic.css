@@ -212,6 +212,12 @@ a {
   height: 180px;
 }
 
+.illustration .brush {
+  background-image: url('/svgs/brush.svg');
+  width: 240px;
+  height: 100px;
+}
+
 .extensions {
   width: 100%;
   position: relative;
