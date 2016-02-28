@@ -120,7 +120,7 @@ a {
   left: 50%;
   top: 240px;
   width: 290px;
-  padding-top: 90%;
+  height: 260px;
   margin-left: -145px;
   translate: transform3d(0, 0, 0);
 }
@@ -329,7 +329,6 @@ a {
     position: relative;
     top: 0;
     left: 0;
-    padding-top: 72%;
     margin: 0 auto;
   }
 
