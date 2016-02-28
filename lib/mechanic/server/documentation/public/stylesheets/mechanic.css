@@ -193,6 +193,18 @@ a {
   height: 300px;
 }
 
+.illustration .saw {
+  background-image: url('/svgs/saw.svg');
+  width: 230px;
+  height: 130px;
+}
+
+.illustration .pencils {
+  background-image: url('/svgs/pencils.svg');
+  width: 230px;
+  height: 180px;
+}
+
 .extensions {
   width: 100%;
   position: relative;
