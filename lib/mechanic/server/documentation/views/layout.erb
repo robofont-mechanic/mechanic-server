@@ -6,6 +6,12 @@
 
     <link rel="stylesheet" href="/stylesheets/mechanic.css" type="text/css" media="screen" title="no title" charset="utf-8">
 
+    <script src="//code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenMax.min.js"></script>
+    <script src="/javascripts/mechanic.js" charset="utf-8"></script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <% if ENV['GA_ID'] %>
@@ -26,32 +32,32 @@
     <header class="page-header">
       <h1>Mechanic</h1>
       <h2>The RoboFont Extension Manager</h2>
+
+      <div class="main-description">
+        <p>Mechanic allows you to install many of the publicly available <a href="http://robofont.com" target="_blank">RoboFont</a> extensions, and notifies you when new updates are available.</p>
+      </div>
+
+      <div class="links">
+        <a href="https://github.com/jackjennings/Mechanic/archive/master.zip" class="download">Download</a>
+
+        <div class="social-links">
+          <a href="http://<%= request.host %>/rss">RSS</a>
+          <a href="http://blog.robofontmechanic.com">Blog</a>
+          <a href="https://twitter.com/RFMechanic">Twitter</a>
+          <a href="https://github.com/jackjennings/Mechanic">GitHub</a>
+        </div>
+      </div>
     </header>
 
-    <div class="horizon"></div>
-
     <div class="illustration">
-      <div class="toolbox">
+      <div class="toolbox" id="toolbox">
         <div class="shelf"></div>
         <div class="shelf2"></div>
         <div class="back"></div>
         <div class="handle"></div>
         <div class="front"></div>
 
-        <div class="tool"></div>
-      </div>
-    </div>
-
-    <div class="mechanic-description">
-      <p>Mechanic allows you to install many of the publicly available <a href="http://robofont.com" target="_blank">Robofont</a> extensions, and notifies you when new updates are available.</p>
-
-      <a href="https://github.com/jackjennings/Mechanic/archive/master.zip" class="download">Download</a>
-
-      <div class="links">
-        <a href="http://<%= request.host %>/rss">RSS</a>
-        <a href="http://blog.robofontmechanic.com">Blog</a>
-        <a href="https://twitter.com/RFMechanic">Twitter</a>
-        <a href="https://github.com/jackjennings/Mechanic">GitHub</a>
+        <div class="tool" id="tool"></div>
       </div>
     </div>
 
