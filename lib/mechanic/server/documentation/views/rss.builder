@@ -6,8 +6,7 @@ xml.rss version: "2.0" do
     xml.link request.url
     @extensions.each do |extension|
       xml.item do
-        xml.title extension.name
-        xml.author extension.author
+        xml.title "#{extension.name} by #{extension.author}"
         xml.pubDate Time.parse(extension.created_at.to_s).rfc822
         xml.link 'http://github.com/' + extension.repository
         xml.guid('robofont-mechanic-' + extension.id.to_s, { isPermaLink: false })
