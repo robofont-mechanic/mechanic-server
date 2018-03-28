@@ -18,10 +18,13 @@ Gem::Specification.new do |s|
   s.add_dependency 'grape', '~> 0.6'
   s.add_dependency 'sinatra'
   s.add_dependency 'rack', '~> 1.5'
-  s.add_dependency 'activerecord', '~> 4.2'
+  s.add_dependency 'activerecord', '~> 4.2.7.1'
   s.add_dependency 'octokit', '~> 2.0'
   s.add_dependency 'plist'
   s.add_dependency 'rack-permissive_cors'
+
+  # Specified only for security vulnerability
+  s.add_dependency 'rack-protection', '~> 1.5.5'
 
   s.add_development_dependency 'minitest'
   s.add_development_dependency 'sqlite3'
